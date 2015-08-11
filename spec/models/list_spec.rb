@@ -12,4 +12,12 @@ RSpec.describe List, type: :model do
     expect(list3).not_to be_valid
   end
 
+
+  it "has a description" do
+    list1 = List.create!(title: "List 1", description: "a super amazing list")
+
+    expect(list1.description).to eq("a super amazing list")
+    expect(list1.description).not_to eq("a super amazing list!!!")
+  end
+
 end
