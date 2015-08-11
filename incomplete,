@@ -1,0 +1,5 @@
+      invoke  active_record
+      create    db/migrate/20150811184536_create_tasks.rb
+      create    app/models/task.rb
+      invoke    rspec
+      create      spec/models/task_spec.rb
