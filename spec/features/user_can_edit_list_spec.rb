@@ -10,11 +10,11 @@ RSpec.describe "edit list" do
     click_link_or_button "Submit"
 
     expect(page).to have_content("write code")
+    expect(page).to have_content("better, faster, stronger")
+
 
     click_link_or_button "write code"
-
     click_link_or_button "Edit"
-
     fill_in "Title", with: "go outside"
     fill_in "Description", with: "get some fresh air"
     click_link_or_button "Submit"

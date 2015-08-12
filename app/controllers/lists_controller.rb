@@ -27,6 +27,16 @@ class ListsController < ApplicationController
   def edit
   end
 
+  def update
+    list = List.find(params[:id])
+    if list.update(list_params)
+      flash[:notice] = "List updated successfully"
+      redirect_to lists_path
+    else
+      render :edit
+    end
+  end
+
 
       private
 
