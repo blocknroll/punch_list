@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   def index
     @lists = List.all
@@ -9,8 +10,8 @@ class ListsController < ApplicationController
   end
 
   def create
-    list = List.new(list_params)
-    if list.save
+    @list = List.new(list_params)
+    if @list.save
       flash[:notice] = "List created successfully"
       redirect_to lists_path
     else
@@ -19,8 +20,16 @@ class ListsController < ApplicationController
     end
   end
 
+  def show
+    @list
+  end
+
 
       private
+
+        def set_list
+          @list = List.find(params[:id])
+        end
 
         def list_params
           params.require(:list).permit(:title, :description)
