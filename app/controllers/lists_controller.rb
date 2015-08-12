@@ -24,6 +24,9 @@ class ListsController < ApplicationController
     @list
   end
 
+  def edit
+  end
+
 
       private
 
