@@ -1,5 +1,7 @@
 class Task < ActiveRecord::Base
 
+  belongs_to :list
+
   validates :title, presence: true
   validate  :start_date_cannot_be_before_current_date
   validate  :due_date_cannot_be_before_current_date
