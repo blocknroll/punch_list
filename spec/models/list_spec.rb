@@ -20,4 +20,11 @@ RSpec.describe List, type: :model do
     expect(list1.description).not_to eq("a super amazing list!!!")
   end
 
+
+  it "can contain tasks" do
+    list1 = List.create!(title: "List 1", description: "a super amazing list")
+
+    expect(list1.tasks).to eq([])
+  end
+
 end
