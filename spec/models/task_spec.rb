@@ -19,11 +19,17 @@ RSpec.describe Task, :type => :model do
 
 
   it "cannot have a start date before the current date" do
-    task1 = Task.create(title: "Task 1", notes: "first task note", status: "incomplete", start_date: Date.new(2015, 8, 11))
+    task1 = Task.create(title: "Task 1", notes: "first task note", status: "incomplete", start_date: Date.new(2015, 8, 17))
     task2 = Task.create(title: "Task 2", notes: "second task note", status: "incomplete", start_date: Date.new(1999, 12, 31))
 
     expect(task1).to be_valid
     expect(task2).not_to be_valid
+  end
+
+  it "cannot set a start date before the current date" do
+    task1 = Task.create(title: "Task 1", notes: "first task note", status: "incomplete", start_date: Date.new(1999, 12, 31))
+
+    expect(task1).not_to be_valid
   end
 
 
