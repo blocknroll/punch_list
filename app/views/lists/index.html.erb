@@ -1,0 +1,8 @@
+<h1>Punch Lists</h1>
+
+<%= link_to "Create New List", new_list_path %>
+
+<% @lists.each do |list| %>
+  <h3><%= link_to list.title, list_path(list) %></h3>
+  <h4><%= list.description %></h4>
+<% end %>
